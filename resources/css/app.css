@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+
+@theme {
+    --font-sans: "DM Sans", system-ui, sans-serif;
+}
+
+.prose figure.table {
+    @apply my-8 overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.prose figure.table table {
+    @apply w-full overflow-hidden rounded border border-neutral-300;
+    min-width: auto;
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.prose figure.table table td {
+    @apply border-r border-b border-neutral-300 px-4 py-3;
+}
+
+.prose figure.table table td:last-child {
+    @apply border-r-0;
+}
+
+.prose figure.table table tbody tr:last-child td {
+    @apply border-b-0;
+}
+
+.prose figure.table table tbody tr:first-child td {
+    @apply border-b-2 border-neutral-300 bg-neutral-50 font-semibold;
+}
+
+.dark .prose figure.table table {
+    @apply border-neutral-700;
+}
+
+.dark .prose figure.table table td {
+    @apply border-neutral-700;
+}
+
+.dark .prose figure.table table tbody tr:first-child td {
+    @apply border-neutral-700 bg-neutral-800;
+}
+
+.prose figure.table::-webkit-scrollbar,
+.prose pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+.prose figure.table::-webkit-scrollbar-track,
+.prose pre::-webkit-scrollbar-track {
+    @apply rounded bg-neutral-100 dark:bg-neutral-800;
+}
+
+.prose figure.table::-webkit-scrollbar-thumb,
+.prose pre::-webkit-scrollbar-thumb {
+    @apply rounded bg-neutral-400 dark:bg-neutral-600;
+}
+
+.prose figure.table::-webkit-scrollbar-thumb:hover,
+.prose pre::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-500 dark:bg-neutral-500;
+}
+
+.prose blockquote {
+    @apply w-full overflow-hidden rounded-r border border-l-4 border-neutral-200 border-l-neutral-300 bg-neutral-50 text-neutral-800;
+}
+
+.dark .prose blockquote {
+    @apply border-neutral-700 border-l-neutral-600 bg-neutral-800 text-neutral-200;
+}
+
+.prose pre {
+    @apply bg-neutral-50 border border-neutral-200 rounded overflow-x-auto font-mono text-sm leading-relaxed text-neutral-800;
+    tab-size: 4;
+    white-space: pre-wrap;
+    min-width: 200px;
+}
+
+.prose pre code {
+    @apply bg-transparent p-0 border-0 rounded-none text-pink-600;
+}
+
+.dark .prose pre code {
+    @apply bg-transparent text-pink-400;
+}
+
+.prose code {
+    @apply bg-neutral-100 text-pink-600 px-1.5 py-0.5 rounded-md text-sm font-normal;
+}
+
+.dark .prose pre {
+    @apply bg-neutral-800 border-neutral-700 text-neutral-200;
+}
+
+.dark .prose code {
+    @apply bg-neutral-700 text-pink-400;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
